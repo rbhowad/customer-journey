@@ -1,0 +1,282 @@
+/* ── Business Insights Tab ──────────────────────────────────────────────── */
+#tab-business-insights {
+    padding: 20px;
+    background: #f1f5f9;
+}
+
+/* ── Empty state ────────────────────────────────────────────────────────── */
+.bi-empty {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 60px 20px; text-align: center;
+    color: #94a3b8;
+}
+.bi-empty-icon { font-size: 2.8em; margin-bottom: 14px; }
+.bi-empty-title { font-size: 1em; font-weight: 700; color: #475569; margin-bottom: 6px; }
+.bi-empty-sub { font-size: 0.82em; }
+
+/* ── Section wrapper ────────────────────────────────────────────────────── */
+.bi-section {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 18px;
+    overflow: hidden;
+}
+
+.bi-section-header {
+    display: flex; align-items: center; gap: 10px;
+    padding: 13px 20px;
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 40%, #2563eb 100%);
+    color: white;
+}
+.bi-section-icon { font-size: 1em; opacity: 0.85; }
+.bi-section-title { font-size: 0.88em; font-weight: 700; letter-spacing: -0.2px; }
+.bi-section-sub { font-size: 0.72em; opacity: 0.55; margin-left: auto; }
+
+.bi-section-body { padding: 18px 20px; }
+
+/* ── KPI Cards ──────────────────────────────────────────────────────────── */
+.bi-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+}
+
+.bi-kpi-card {
+    border-radius: 10px;
+    padding: 16px 18px;
+    position: relative;
+    overflow: hidden;
+}
+.bi-kpi-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+}
+.bi-kpi-card.blue   { background: #eff6ff; }
+.bi-kpi-card.blue::before { background: #2563eb; }
+.bi-kpi-card.green  { background: #f0fdf4; }
+.bi-kpi-card.green::before { background: #16a34a; }
+.bi-kpi-card.amber  { background: #fffbeb; }
+.bi-kpi-card.amber::before { background: #d97706; }
+.bi-kpi-card.purple { background: #faf5ff; }
+.bi-kpi-card.purple::before { background: #7c3aed; }
+.bi-kpi-card.teal   { background: #f0fdfa; }
+.bi-kpi-card.teal::before { background: #0891b2; }
+.bi-kpi-card.red    { background: #fef2f2; }
+.bi-kpi-card.red::before { background: #dc2626; }
+
+.bi-kpi-label { font-size: 0.68em; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; margin-bottom: 6px; }
+.bi-kpi-value { font-size: 1.9em; font-weight: 800; color: #1e293b; line-height: 1; }
+.bi-kpi-sub { font-size: 0.72em; color: #64748b; margin-top: 5px; }
+.bi-kpi-badge {
+    display: inline-block; font-size: 0.68em; font-weight: 700;
+    padding: 1px 7px; border-radius: 10px; margin-top: 5px;
+}
+.bi-kpi-badge.up   { background: #dcfce7; color: #15803d; }
+.bi-kpi-badge.down { background: #fee2e2; color: #dc2626; }
+.bi-kpi-badge.neutral { background: #e2e8f0; color: #475569; }
+
+/* ── Conversion Funnel ──────────────────────────────────────────────────── */
+.bi-funnel {
+    display: flex; align-items: stretch; gap: 0;
+    overflow-x: auto; padding: 4px 0;
+}
+
+.bi-funnel-stage {
+    flex: 1; min-width: 120px;
+    display: flex; flex-direction: column; align-items: center;
+    position: relative;
+}
+
+.bi-funnel-bar-wrap {
+    width: 100%; display: flex; align-items: center;
+}
+
+.bi-funnel-bar {
+    flex: 1; height: 52px;
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-weight: 700; font-size: 1.05em;
+    position: relative;
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%, 14px 50%);
+}
+.bi-funnel-stage:first-child .bi-funnel-bar {
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%);
+}
+.bi-funnel-stage:last-child .bi-funnel-bar {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 14px 50%);
+}
+
+.bi-funnel-bar.f-blue   { background: #2563eb; }
+.bi-funnel-bar.f-indigo { background: #4f46e5; }
+.bi-funnel-bar.f-violet { background: #7c3aed; }
+.bi-funnel-bar.f-green  { background: #16a34a; }
+
+.bi-funnel-label {
+    font-size: 0.7em; font-weight: 600; color: #64748b;
+    text-align: center; margin-top: 8px; padding: 0 4px;
+}
+.bi-funnel-pct {
+    font-size: 0.68em; color: #94a3b8; margin-top: 2px;
+    text-align: center;
+}
+
+.bi-funnel-arrow {
+    font-size: 1em; color: #cbd5e1;
+    display: flex; align-items: center;
+    margin: 0 -4px; z-index: 1;
+}
+
+/* ── Charts grid ────────────────────────────────────────────────────────── */
+.bi-charts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+.bi-charts-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+
+@media (max-width: 760px) {
+    .bi-charts-grid, .bi-charts-grid.cols-3 { grid-template-columns: 1fr; }
+}
+
+.bi-chart-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 14px 16px;
+}
+.bi-chart-title {
+    font-size: 0.74em; font-weight: 700; color: #475569;
+    text-transform: uppercase; letter-spacing: 0.8px;
+    margin-bottom: 12px;
+}
+.bi-chart-wrap { position: relative; height: 220px; }
+.bi-chart-wrap.tall { height: 280px; }
+
+/* ── IC bar chart labels ────────────────────────────────────────────────── */
+.bi-ic-chart-wrap { position: relative; }
+
+/* ── Premium stats row ──────────────────────────────────────────────────── */
+.bi-prem-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 16px;
+}
+.bi-prem-stat {
+    text-align: center;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px 8px;
+}
+.bi-prem-stat-label { font-size: 0.66em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #94a3b8; margin-bottom: 4px; }
+.bi-prem-stat-val { font-size: 1.2em; font-weight: 800; color: #1e293b; }
+.bi-prem-stat-val span { font-size: 0.6em; color: #94a3b8; font-weight: 600; }
+
+/* ── IC Ranking Table ───────────────────────────────────────────────────── */
+.bi-table { width: 100%; border-collapse: collapse; font-size: 0.83em; }
+.bi-table th {
+    text-align: left; font-size: 0.7em; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1px;
+    color: #94a3b8; padding: 0 12px 10px;
+    border-bottom: 2px solid #e2e8f0;
+}
+.bi-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+    vertical-align: middle;
+}
+.bi-table tr:last-child td { border-bottom: none; }
+.bi-table tr:hover td { background: #f8fafc; }
+.bi-table .rank { font-weight: 800; color: #94a3b8; width: 32px; }
+.bi-table .rank.top1 { color: #f59e0b; }
+.bi-table .rank.top2 { color: #94a3b8; }
+.bi-table .rank.top3 { color: #b45309; }
+
+/* Progress bar inside table */
+.bi-bar-cell { display: flex; align-items: center; gap: 8px; }
+.bi-bar-bg { flex: 1; height: 6px; background: #e2e8f0; border-radius: 3px; overflow: hidden; }
+.bi-bar-fill { height: 100%; border-radius: 3px; background: #2563eb; }
+.bi-bar-fill.green { background: #16a34a; }
+.bi-bar-fill.amber { background: #d97706; }
+
+.bi-valid-badge {
+    display: inline-block; font-size: 0.68em; font-weight: 700; padding: 2px 7px; border-radius: 8px;
+    background: #dcfce7; color: #15803d;
+}
+.bi-invalid-badge {
+    display: inline-block; font-size: 0.68em; font-weight: 700; padding: 2px 7px; border-radius: 8px;
+    background: #fee2e2; color: #dc2626;
+}
+
+/* ── Impact Cards ───────────────────────────────────────────────────────── */
+.bi-impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+}
+
+.bi-impact-card {
+    border-radius: 10px; padding: 16px 18px;
+    border: 1px solid #e2e8f0;
+    display: flex; flex-direction: column; gap: 4px;
+}
+.bi-impact-card.critical { border-color: #fca5a5; background: #fef2f2; }
+.bi-impact-card.warning  { border-color: #fde68a; background: #fffbeb; }
+.bi-impact-card.info     { border-color: #bfdbfe; background: #eff6ff; }
+.bi-impact-card.success  { border-color: #86efac; background: #f0fdf4; }
+
+.bi-impact-val { font-size: 2em; font-weight: 800; color: #1e293b; line-height: 1; }
+.bi-impact-label { font-size: 0.74em; font-weight: 600; color: #475569; }
+.bi-impact-desc { font-size: 0.68em; color: #94a3b8; margin-top: 2px; }
+
+/* ── Partner / RenewType pills ──────────────────────────────────────────── */
+.bi-pill-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.bi-pill {
+    display: flex; align-items: center; gap: 7px;
+    background: #f8fafc; border: 1px solid #e2e8f0;
+    border-radius: 20px; padding: 4px 12px;
+    font-size: 0.78em;
+}
+.bi-pill-name { font-weight: 600; color: #334155; }
+.bi-pill-count { font-weight: 800; color: #2563eb; }
+
+/* ── Date Filter Bar ────────────────────────────────────────────────────────── */
+.bi-filter-bar {
+    display: flex; align-items: flex-end; gap: 12px;
+    background: white; border-radius: 12px; border: 1px solid #e2e8f0;
+    padding: 14px 20px; margin-bottom: 18px; flex-wrap: wrap;
+}
+
+.bi-filter-group {
+    display: flex; flex-direction: column; gap: 4px;
+}
+
+.bi-filter-label {
+    font-size: 0.68em; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.8px; color: #94a3b8;
+}
+
+.bi-filter-input {
+    padding: 8px 12px; border: 1.5px solid #e2e8f0; border-radius: 8px;
+    font-size: 0.85em; font-family: inherit; color: #1e293b;
+    background: #f8fafc; outline: none; transition: all 0.2s;
+}
+
+.bi-filter-input:focus {
+    border-color: #2563eb; background: white;
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+}
+
+.bi-filter-btn {
+    padding: 9px 20px;
+    background: linear-gradient(135deg, #1e3a5f, #2563eb);
+    color: white; border: none; border-radius: 8px;
+    font-size: 0.85em; font-weight: 700; cursor: pointer;
+    transition: opacity 0.2s; white-space: nowrap;
+}
+
+.bi-filter-btn:hover  { opacity: 0.88; }
+.bi-filter-btn:disabled { opacity: 0.6; cursor: not-allowed; }
